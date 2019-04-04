@@ -2,7 +2,7 @@
 
 const applyCustomReduce = require('./arrayMethodReduce');
 
-const source = [0, 10, 20, 30];
+const sourceNumbers = [0, 10, 20, 30];
 const sourceStr = ['a', 'b', 'c', 'd'];
 applyCustomReduce();
 
@@ -12,7 +12,7 @@ test('reduce2 is added to [].__proto__', () => {
 });
 
 test('for .reduce2((sum, x) => sum + x, 0), numbers', () => {
-  expect(source.reduce2((sum, x) => sum + x, 0))
+  expect(sourceNumbers.reduce2((sum, x) => sum + x, 0))
     .toBe(60);
 });
 
@@ -22,7 +22,7 @@ test('for .reduce2((sum, x) => sum + x, ""), strings', () => {
 });
 
 test('takes first item as a `startValue` if not given, numbers', () => {
-  expect(source.reduce2((sum, x) => sum + x))
+  expect(sourceNumbers.reduce2((sum, x) => sum + x))
     .toBe(60);
 });
 
@@ -37,7 +37,7 @@ test('returns `startValue` for []', () => {
 });
 
 test('for (sum, item, index) => sum + index', () => {
-  expect(source.reduce2((sum, x, i) => sum + i))
+  expect(sourceNumbers.reduce2((sum, x, i) => sum + i))
     .toBe(6);
 });
 
@@ -52,7 +52,7 @@ test(
   });
 
 test('Source array is not changed', () => {
-  expect(source)
+  expect(sourceNumbers)
     .toEqual([0, 10, 20, 30]);
   expect(sourceStr)
     .toEqual(['a', 'b', 'c', 'd']);
