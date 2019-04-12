@@ -11,6 +11,11 @@ test('reduce2 is added to [].__proto__', () => {
     .toBeInstanceOf(Function);
 });
 
+test(`reduce2 doesn't call default reduce`, () => {
+  expect([].reduce2.toString().includes('.reduce('))
+    .toBe(false);
+});
+
 test('for .reduce2((sum, x) => sum + x, 0), numbers', () => {
   expect(sourceNumbers.reduce2((sum, x) => sum + x, 0))
     .toBe(60);
