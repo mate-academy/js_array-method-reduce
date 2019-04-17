@@ -18,7 +18,4 @@ function applyCustomReduce() {
   };
 }
 
-// applyCustomReduce();
-// const sourceStr = ['a', 'b', 'c', 'd'];
-// sourceStr.reduce2((sum, x) => sum + x, '');
 module.exports = applyCustomReduce;
