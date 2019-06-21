@@ -14,22 +14,22 @@ function applyCustomReduce() {
       return initialValue;
     }
 
-    let result;
+    let resultValue;
     let i;
 
     if (initialValue !== undefined) {
-      result = initialValue;
+      resultValue = initialValue;
       i = 0;
     } else {
-      result = this[0];
+      resultValue = this[0];
       i = 1;
     }
 
     for (; i < this.length; i++) {
-      result = callback(result, this[i], i, this);
+      resultValue = callback(resultValue, this[i], i, this);
     }
 
-    return result;
+    return resultValue;
   };
 }
 
