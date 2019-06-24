@@ -11,21 +11,14 @@ function applyCustomReduce() {
 
     let accumulator = 0;
     let previousValue = this[0];
+    let i = 1;
 
     if (initialValue !== undefined) {
       previousValue = initialValue;
-      for (let i = 0; i < this.length; i++) {
-        const item = this[i];
-        const index = i;
-        const arr = this;
-        accumulator = callback(previousValue, item, index, arr);
-        previousValue = accumulator;
-      }
-
-      return accumulator;
+      i = 0;
     }
 
-    for (let i = 1; i < this.length; i++) {
+    for (i; i < this.length; i++) {
       const item = this[i];
       const index = i;
       const arr = this;
