@@ -6,14 +6,16 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let accumulator;
+    let i = 0;
 
-    if (initialValue !== undefined) {
+    if (arguments.length > 1) {
       accumulator = initialValue;
     } else {
-      typeof this[0] === 'string' ? accumulator = '' : accumulator = 0;
+      accumulator = this[0];
+      i = 1;
     }
 
-    for (let i = 0; i < this.length; i++) {
+    for (i; i < this.length; i++) {
       accumulator = callback(accumulator, this[i], i, this);
     }
 
