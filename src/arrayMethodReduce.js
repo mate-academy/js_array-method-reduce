@@ -9,21 +9,21 @@ function applyCustomReduce() {
       return initialValue;
     }
 
-    let acc;
+    let accumulator;
     let i = 0;
 
     if (arguments.length === 1) {
-      acc = this[0];
+      accumulator = this[0];
       i++;
     } else {
-      acc = initialValue;
+      accumulator = initialValue;
     }
 
     for (i; i < this.length; i++) {
-      acc = callback(acc, this[i], i, this);
+      accumulator = callback(accumulator, this[i], i, this);
     }
 
-    return acc;
+    return accumulator;
   };
 }
 
