@@ -14,6 +14,7 @@ function applyCustomReduce() {
         accumulator = this[i];
       }
     }
+
     return accumulator;
   };
 }
