@@ -4,18 +4,18 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, initialValue) {
-    let accumulator = initialValue === undefined ? undefined : initialValue;
-
+  [].__proto__.reduce2 = function(callback, initialValue = undefined) {
     for (let i = 0; i < this.length; i++) {
-      if (accumulator !== undefined) {
-        accumulator = callback(accumulator, this[i], i, this);
+      if (initialValue !== undefined) {
+        // eslint-disable-next-line no-param-reassign
+        initialValue = callback(initialValue, this[i], i, this);
       } else {
-        accumulator = this[i];
+        // eslint-disable-next-line no-param-reassign
+        initialValue = this[i];
       }
     }
 
-    return accumulator;
+    return initialValue;
   };
 }
 
