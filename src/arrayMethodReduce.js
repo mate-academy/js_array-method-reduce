@@ -4,7 +4,7 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, initialValue) {
+  [].__proto__.reduce2 = function(callback, initialValue = undefined) {
     let accumulator = initialValue;
 
     for (let i = 0; i < this.length; i++) {
