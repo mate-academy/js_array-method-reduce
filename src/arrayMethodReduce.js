@@ -6,6 +6,7 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let accumulattor, i;
+    
     if (arguments.length === 1) {
       accumulattor = this[0];
       i = 1;
