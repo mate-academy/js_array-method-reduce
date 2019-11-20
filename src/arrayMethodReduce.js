@@ -8,21 +8,20 @@ function applyCustomReduce() {
     if (!this.length) {
       return initialValue;
     }
-
     let result = 0;
     let accumulator;
+    let i = 0;
+
     if (initialValue === undefined) {
       accumulator = this[0];
-      for (let i = 1; i < this.length; i++) {
-        result = callback(accumulator, this[i], i);
-        accumulator = result;
-      }
+      i = 1;
     } else {
       accumulator = initialValue;
-      for (let i = 0; i < this.length; i++) {
-        result = callback(accumulator, this[i], i, this);
-        accumulator = result;
-      }
+    }
+
+    for (i; i < this.length; i++) {
+      result = callback(accumulator, this[i], i, this);
+      accumulator = result;
     }
 
     return result;
