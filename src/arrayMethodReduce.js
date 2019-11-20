@@ -13,15 +13,16 @@ function applyCustomReduce() {
 
     if (initialValue !== undefined) {
       accumulator = initialValue;
+
+      for (let i = 0; i < this.length; i++) {
+        accumulator = callback(accumulator, this[i], i, this);
+      }
     } else {
       accumulator = this[0];
-      if (typeof this[0] === 'string') {
-        accumulator = '';
-      }
-    }
 
-    for (let i = 0; i < this.length; i++) {
-      accumulator = callback(accumulator, this[i], i, this);
+      for (let i = 1; i < this.length; i++) {
+        accumulator = callback(accumulator, this[i], i, this);
+      }
     }
 
     return accumulator;
