@@ -9,7 +9,7 @@ function applyCustomReduce() {
       return initialValue;
     }
 
-    let accumulator = 0;
+    let accumulator;
 
     if (initialValue !== undefined) {
       accumulator = initialValue;
