@@ -9,30 +9,22 @@ function applyCustomReduce() {
       return initialValue;
     }
 
-    let result = 0;
     let accumulator = 0;
 
     if (initialValue !== undefined) {
       accumulator = initialValue;
-      if (typeof this[0] === 'string') {
-        result = '';
-      }
     } else {
+      accumulator = this[0];
       if (typeof this[0] === 'string') {
-        result = '';
         accumulator = '';
       }
     }
 
     for (let i = 0; i < this.length; i++) {
-      if (typeof accumulator === 'number') {
-        result = +result;
-      }
-
-      result += callback(accumulator, this[i], i, this);
+      accumulator = callback(accumulator, this[i], i, this);
     }
 
-    return result;
+    return accumulator;
   };
 }
 
