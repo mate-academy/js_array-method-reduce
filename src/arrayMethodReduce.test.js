@@ -3,7 +3,9 @@
 const applyCustomReduce = require('./arrayMethodReduce');
 
 const sourceNumbers = [0, 10, 20, 30];
+
 const sourceStr = ['a', 'b', 'c', 'd'];
+
 applyCustomReduce();
 
 test('reduce2 is added to [].__proto__', () => {
@@ -59,6 +61,7 @@ test(
 test('Source array is not changed', () => {
   expect(sourceNumbers)
     .toEqual([0, 10, 20, 30]);
+
   expect(sourceStr)
     .toEqual(['a', 'b', 'c', 'd']);
 });
