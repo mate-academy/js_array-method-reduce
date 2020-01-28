@@ -5,10 +5,6 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    if (!arguments) {
-      return false;
-    }
-
     let acc = initialValue === undefined ? this[0] : initialValue;
     const index = acc === initialValue ? 0 : 1;
 
