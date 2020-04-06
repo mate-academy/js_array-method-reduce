@@ -1,11 +1,6 @@
-'use strict';
-
-/**
- * Implement method Reduce
- */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let accumulator = 0;
+    let accumulator = this[0];
 
     if (typeof initialValue === 'number') {
       accumulator = initialValue;
