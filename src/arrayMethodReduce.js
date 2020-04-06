@@ -20,8 +20,7 @@ function applyCustomReduce() {
       }
 
       return acc;
-    } else if (Object.is(initialValue, NaN)
-      || typeof initialValue !== 'number') {
+    } else if (Object.is(initialValue, NaN)) {
       acc = initialValue.toString();
     } else {
       acc = initialValue;
