@@ -11,23 +11,21 @@ function applyCustomReduce() {
     }
 
     if (typeof callback === 'function') {
+      let sum = 0;
+      let i = 0;
+
       if (initialValue !== undefined) {
-        let sum = initialValue;
-
-        for (let i = 0; i < this.length; i++) {
-          sum = callback(sum, this[i], i, this);
-        }
-
-        return sum;
+        sum = initialValue;
       } else {
-        let sum = this[0];
-
-        for (let i = 1; i < this.length; i++) {
-          sum = callback(sum, this[i], i, this);
-        }
-
-        return sum;
+        sum = this[0];
+        i = 1;
       }
+
+      for (; i < this.length; i++) {
+        sum = callback(sum, this[i], i, this);
+      }
+
+      return sum;
     }
   };
 }
