@@ -1,3 +1,5 @@
+'use strict';
+
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let accumulator = this[0];
