@@ -7,13 +7,18 @@ function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let accumulator;
 
-    (initialValue === undefined)
-      ? accumulator = this[0]
-      : accumulator = initialValue;
+    if (initialValue === undefined) {
+      accumulator = this[0];
 
-    for (let i = 0; i < this.length; i++) {
-      accumulator = callback(accumulator, this[i], i, this);
-      // console.log (accumulator);
+      for (let i = 1; i < this.length; i++) {
+        accumulator = callback(accumulator, this[i], i, this);
+      }
+    } else {
+      accumulator = initialValue;
+
+      for (let i = 0; i < this.length; i++) {
+        accumulator = callback(accumulator, this[i], i, this);
+      }
     }
 
     return accumulator;
