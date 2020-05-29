@@ -19,9 +19,4 @@ function applyCustomReduce() {
   };
 };
 
-// const sourceNumbers = [0, 10, 20, 30];
-// const sourceStr = ['a', 'b', 'c', 'd'];
-
-applyCustomReduce();
-// sourceStr.reduce2((sum, x) => sum + x);
 module.exports = applyCustomReduce;
