@@ -7,7 +7,7 @@ function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue = this[0]) {
     let accumulator = initialValue;
 
-    if (typeof accumulator === 'string') {
+    if (typeof accumulator === 'string' && accumulator === this[0]) {
       accumulator = '';
     }
 
