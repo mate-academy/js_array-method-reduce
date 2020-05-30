@@ -6,12 +6,9 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue = this[0]) {
     let accumulator = initialValue;
+    const fromIndex = initialValue ? 1 : 0;
 
-    if (typeof accumulator === 'string' && accumulator === this[0]) {
-      accumulator = '';
-    }
-
-    for (let i = 0; i < this.length; i++) {
+    for (let i = 0 + fromIndex; i < this.length; i++) {
       accumulator = callback(accumulator, this[i], i, this);
     }
 
