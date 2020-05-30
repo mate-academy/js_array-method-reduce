@@ -8,7 +8,7 @@ function applyCustomReduce() {
     let accumulator = initialValue;
     const fromIndex = initialValue ? 1 : 0;
 
-    for (let i = 0 + fromIndex; i < this.length; i++) {
+    for (let i = fromIndex; i < this.length; i++) {
       accumulator = callback(accumulator, this[i], i, this);
     }
 
