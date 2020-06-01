@@ -9,7 +9,7 @@ function applyCustomReduce() {
 
     for (let i = 0; i < this.length; i++) {
       if (accumulator === undefined) {
-        accumulator = this[i];
+        accumulator = this[0];
         i++;
       };
 
