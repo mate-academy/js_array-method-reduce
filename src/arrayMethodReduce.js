@@ -4,15 +4,13 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, initialValue) {
+  [].__proto__.reduce2 = function(callback, initialValue = this[0]) {
     let accumulator;
 
     if (Number.isInteger(initialValue)) {
       accumulator = initialValue;
     } else if (typeof this[0] === 'string') {
       accumulator = '';
-    } else if (typeof this[0] === 'number') {
-      accumulator = this[0];
     }
 
     for (let i = 0; i < this.length; i++) {
