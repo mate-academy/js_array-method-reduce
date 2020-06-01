@@ -7,14 +7,12 @@ function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let accumulator;
 
-    if (initialValue === 0) {
+    if (Number.isInteger(initialValue)) {
       accumulator = initialValue;
-    } else if (typeof this[0] === 'string' && !initialValue) {
+    } else if (typeof this[0] === 'string') {
       accumulator = '';
-    } else if (typeof this[0] === 'number' && !initialValue) {
+    } else if (typeof this[0] === 'number') {
       accumulator = this[0];
-    } else {
-      accumulator = initialValue;
     }
 
     for (let i = 0; i < this.length; i++) {
