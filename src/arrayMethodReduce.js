@@ -6,7 +6,7 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     // write code here
-    let accumReturns = initialValue;
+    let accumulator = initialValue;
     let start = 0;
     let startVal = initialValue;
 
@@ -16,15 +16,15 @@ function applyCustomReduce() {
       } else {
         startVal = 0;
       }
-      accumReturns = this[0];
+      accumulator = this[0];
       start = 1;
     }
 
     for (let i = start; i < this.length; i++) {
-      accumReturns += callback(startVal, this[i], i, this);
+      accumulator += callback(startVal, this[i], i, this);
     }
 
-    return accumReturns;
+    return accumulator;
   };
 }
 
