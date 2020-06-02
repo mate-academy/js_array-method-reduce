@@ -5,9 +5,11 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let accumulator;
+    let accumulator = initialValue;
 
-    (isNaN(this[0])) ? accumulator = initialValue : accumulator = 0;
+    if (initialValue === undefined) {
+      accumulator = this[0];
+    }
 
     if (this[0] === this[0] + '' && initialValue === undefined) {
       accumulator = '';
