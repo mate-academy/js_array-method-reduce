@@ -5,19 +5,19 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let res;
+    let accumulator;
 
-    (isNaN(this[0])) ? res = initialValue : res = 0;
+    (isNaN(this[0])) ? accumulator = initialValue : accumulator = 0;
 
     if (this[0] === this[0] + '' && initialValue === undefined) {
-      res = '';
+      accumulator = '';
     }
 
     for (let i = 0; i < this.length; i++) {
-      res = callback(res, this[i], i, this);
+      accumulator = callback(accumulator, this[i], i, this);
     }
 
-    return res;
+    return accumulator;
   };
 }
 
