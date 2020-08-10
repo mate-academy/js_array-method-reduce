@@ -14,9 +14,7 @@ function applyCustomReduce() {
     }
 
     for (let i = start; i < this.length; i++) {
-      const current = callback(accumulator, this[i], i, this);
-
-      accumulator = current;
+      accumulator = callback(accumulator, this[i], i, this);
     }
 
     return accumulator;
