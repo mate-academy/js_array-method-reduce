@@ -8,6 +8,11 @@ function applyCustomReduce() {
     let startFrom;
     let accumulator;
 
+    // in the case when callback havent got
+    if (arguments.length < 1) {
+      callback();
+    }
+
     // different situations when initialValue defined and when didnt
     if (arguments.length < 2) {
       accumulator = this[0];
