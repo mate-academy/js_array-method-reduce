@@ -8,13 +8,15 @@ function applyCustomReduce() {
     let results = initialValue;
     let calc = 0;
 
-    if (arguments.length <= 1) {
+    if (arguments.length === 1) {
       results = this[0];
       calc = 1;
     }
 
-    for (let i = calc; i < this.length; i++) {
-      results = callback(results, this[i], i, this);
+    for (; calc < this.length; calc++) {
+      if (calc in this) {
+        results = callback(results, this[calc], calc, this);
+      }
     }
 
     return results;
