@@ -8,7 +8,7 @@ function applyCustomReduce() {
     let accum = initialValue;
 
     for (let i = 0; i < this.length; i++) {
-      if (arguments.length < 2 && i === 0) {
+      if (arguments.length === 1 && i === 0) {
         accum = this[0];
         i++;
       }
