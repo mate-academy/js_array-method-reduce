@@ -5,13 +5,22 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let accum = initialValue || 0;
+    let accum;
+    let start;
 
-    for (let i = 0; i < this.length; i++) {
+    if (initialValue !== undefined) {
+      accum = initialValue;
+      start = 0;
+    } else {
+      accum = this[0];
+      start = 1;
+    }
+
+    for (let i = start; i < this.length; i++) {
       accum = callback(accum, this[i], i, this);
     }
 
-    return typeof accum === 'string' ? accum.substr(1) : accum;
+    return accum;
   };
 }
 
