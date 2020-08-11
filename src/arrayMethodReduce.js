@@ -8,9 +8,9 @@ function applyCustomReduce() {
     let accumulator = initialValue;
     let start = 0;
 
-    if (arguments.length < 2) {
+    if (arguments.length === 1) {
+      start++;
       accumulator = this[0];
-      start = 1;
     }
 
     for (let i = start; i < this.length; i++) {
