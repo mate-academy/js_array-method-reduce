@@ -8,8 +8,16 @@ function applyCustomReduce() {
     let returnValue = initialValue;
     let startIndex = 0;
 
-    if (arguments.length < 1) {
-      return 'Uncaught TypeError: undefined is not a function at Array.reduce';
+    if (arguments.length === 0) {
+      return;
+    }
+
+    if (this.length === 1 && initialValue === undefined) {
+      return this[0];
+    }
+
+    if (this.length === 0 && initialValue) {
+      return initialValue;
     }
 
     if (arguments.length === 1) {
