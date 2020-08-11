@@ -1,11 +1,22 @@
 'use strict';
 
-/**
- * Implement method Reduce
- */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    // write code here
+    let sum = initialValue;
+    let i = 0;
+    const len = this.length;
+
+    if (sum === undefined) {
+      sum = this[0];
+      i = 1;
+    }
+
+    while (i < len) {
+      sum = callback(sum, this[i], i, this);
+      i++;
+    }
+
+    return sum;
   };
 }
 
