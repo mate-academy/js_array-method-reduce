@@ -16,6 +16,10 @@ function applyCustomReduce() {
       result = initialValue;
     }
 
+    if (arguments.length < 1) {
+      start = 0;
+    }
+
     for (let i = start; i < this.length; i++) {
       result = callback(result, this[i], i, this);
     }
