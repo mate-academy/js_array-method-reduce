@@ -15,6 +15,6 @@ function applyCustomReduce() {
 
     return initial;
   };
-}
+};
 
 module.exports = applyCustomReduce;
