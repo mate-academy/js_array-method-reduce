@@ -5,6 +5,10 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
+    if (callback === undefined) {
+      return new TypeError('Uncaught TypeError: undefined is not a function');
+    }
+
     let result = initialValue;
     let startIndex = 0;
 
