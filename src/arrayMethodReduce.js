@@ -5,6 +5,10 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
+    if (callback === undefined) {
+      return new TypeError('your callback undefined');
+    }
+
     let result = initialValue;
     let i = 0;
 
