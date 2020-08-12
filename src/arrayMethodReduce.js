@@ -18,10 +18,6 @@ function applyCustomReduce() {
       startIndex = 0;
     }
 
-    if (initialValue === this[0]) {
-      startIndex = 1;
-    }
-
     for (let i = startIndex; i < this.length; i++) {
       value = callback(value, this[i], i, this);
     }
