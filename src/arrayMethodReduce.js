@@ -6,21 +6,21 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue = this[0]) {
     let start;
-    let accum;
+    let accummulator;
 
     if (arguments.length < 2) {
-      accum = this[0];
+      accummulator = this[0];
       start = 1;
     } else {
-      accum = initialValue;
+      accummulator = initialValue;
       start = 0;
     }
 
     for (let i = start; i < this.length; i++) {
-      accum = callback(accum, this[i], i, this);
+      accummulator = callback(accummulator, this[i], i, this);
     }
 
-    return accum;
+    return accummulator;
   };
 }
 
