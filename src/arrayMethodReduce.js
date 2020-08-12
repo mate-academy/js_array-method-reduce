@@ -6,6 +6,10 @@ function applyCustomReduce() {
     let i = 0;
     const len = this.length;
 
+    if (callback === undefined) {
+      return new TypeError('Uncaught TypeError: undefined is not a function');
+    }
+
     if (sum === undefined) {
       sum = this[0];
       i = 1;
