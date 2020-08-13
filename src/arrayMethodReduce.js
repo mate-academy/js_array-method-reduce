@@ -8,7 +8,7 @@ function applyCustomReduce() {
     let startIndex = 0;
     let accumulator = initialValue;
 
-    if (arguments.length < 2) {
+    if (arguments.length === 1) {
       accumulator = this[0];
       startIndex = 1;
     }
