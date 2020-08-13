@@ -6,6 +6,10 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     // write code here
+    if (callback === undefined) {
+      return new TypeError('missing argument 0 when calling function');
+    }
+
     let prev = initialValue;
     let startIndex = 0;
 
