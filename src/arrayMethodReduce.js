@@ -4,23 +4,20 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, initialValue = this[0]) {
-    let start;
-    let accummulator;
+  [].__proto__.reduce2 = function(callback, initialValue) {
+    let startIndex = 0;
+    let accumulator = initialValue;
 
     if (arguments.length < 2) {
-      accummulator = this[0];
-      start = 1;
-    } else {
-      accummulator = initialValue;
-      start = 0;
+      accumulator = this[0];
+      startIndex = 1;
     }
 
-    for (let i = start; i < this.length; i++) {
-      accummulator = callback(accummulator, this[i], i, this);
+    for (let i = startIndex; i < this.length; i++) {
+      accumulator = callback(accumulator, this[i], i, this);
     }
 
-    return accummulator;
+    return accumulator;
   };
 }
 
