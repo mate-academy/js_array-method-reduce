@@ -5,27 +5,23 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
+    let accumulator;
+    let startIndex = 0;
+
     if (!initialValue) {
-      let accum;
-
-      typeof callback(accum, this[0], 0, this) === 'number'
-        ? accum = 0
-        : accum = '';
-
-      for (let i = 0; i < this.length; i++) {
-        accum = callback(accum, this[i], i, this);
-      }
-
-      return accum;
+      typeof callback(accumulator, this[0], 0, this) === 'number'
+        ? accumulator = 0
+        : accumulator = '';
     } else {
-      let accum = initialValue;
-
-      for (let i = 1; i < this.length; i++) {
-        accum = callback(accum, this[i], i, this);
-      }
-
-      return accum;
+      accumulator = initialValue;
+      startIndex = 1;
     }
+
+    for (let i = startIndex; i < this.length; i++) {
+      accumulator = callback(accumulator, this[i], i, this);
+    }
+
+    return accumulator;
   };
 }
 
