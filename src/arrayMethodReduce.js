@@ -4,22 +4,15 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, initialValue = 0) {
-    let res = initialValue;
+  [].__proto__.reduce2 = function(callback, initialValue) {
+    let acc = initialValue !== undefined ? initialValue : this[0];
+    const index = acc === this[0] ? 1 : 0;
 
-    if (typeof this[0] === 'string') {
-      res = '';
+    for (let i = index; i < this.length; i++) {
+      acc = callback(acc, this[i], i, this);
     }
 
-    for (let i = 0; i < this.length; i++) {
-      res = callback(res, this[i], i, this);
-
-      if (!isNaN(parseInt(res))) {
-        res = parseInt(res);
-      }
-    }
-
-    return res;
+    return acc;
   };
 }
 
