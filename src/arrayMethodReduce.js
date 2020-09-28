@@ -8,7 +8,7 @@ function applyCustomReduce() {
     let currenIndex = 0;
     let currentValue = initialValue;
 
-    if (!initialValue && initialValue !== 0) {
+    if (currentValue === undefined) {
       currentValue = this[0];
       currenIndex++;
     }
