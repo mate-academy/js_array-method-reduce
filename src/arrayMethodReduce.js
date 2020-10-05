@@ -5,7 +5,7 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue = this[0]) {
-    let result = initialValue;
+    let accumulatedValue = initialValue;
     let i = 0;
 
     if (arguments.length === 1) {
@@ -13,10 +13,10 @@ function applyCustomReduce() {
     }
 
     for (; i < this.length; i++) {
-      result = callback(result, this[i], i, this);
+      accumulatedValue = callback(accumulatedValue, this[i], i, this);
     }
 
-    return result;
+    return accumulatedValue;
   };
 }
 
