@@ -7,7 +7,7 @@ function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let endValue = initialValue;
 
-    if (initialValue === undefined) {
+    if (endValue === undefined) {
       endValue = typeof (this[0]) === 'string' ? '' : 0;
     }
 
