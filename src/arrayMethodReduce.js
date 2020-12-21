@@ -6,12 +6,14 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let result = initialValue;
+    let start = 0;
 
     if (initialValue === undefined) {
-      result = typeof (this[0]) === 'string' ? '' : this[0];
+      result = this[0];
+      start = 1;
     }
 
-    for (let i = 0; i < this.length; i++) {
+    for (let i = start; i < this.length; i++) {
       result = callback(result, this[i], i, this);
     }
 
