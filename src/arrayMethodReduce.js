@@ -8,11 +8,11 @@ function applyCustomReduce() {
     let reducedValue = initialValue;
     let startIndex = 0;
 
-    if (!(typeof callback === 'function')) {
-      return undefined;
+    if (typeof callback !== 'function') {
+      throw new Error('Callback is not a function');
     }
 
-    if (typeof initialValue === 'undefined') {
+    if (arguments.length < 2) {
       reducedValue = this[0];
       startIndex = 1;
     }
