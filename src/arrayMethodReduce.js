@@ -6,16 +6,14 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let sum = initialValue;
+    let i = 0;
 
-    if (sum === undefined && typeof this[0] === 'number') {
-      sum = 0;
+    if (initialValue === undefined) {
+      sum = this[0];
+      i = 1;
     }
 
-    if (sum === undefined && typeof this[0] === 'string') {
-      sum = '';
-    }
-
-    for (let i = 0; i < this.length; i++) {
+    for (i; i < this.length; i++) {
       sum = callback(sum, this[i], i, this);
     }
 
