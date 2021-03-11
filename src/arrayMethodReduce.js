@@ -4,12 +4,13 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, initialValue = this[0]) {
+  [].__proto__.reduce2 = function(callback, initialValue) {
     // write code here
     let start = 0;
     let result = initialValue;
 
     if (initialValue === undefined) {
+      result = this[0];
       start = 1;
     }
 
