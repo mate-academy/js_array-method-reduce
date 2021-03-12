@@ -12,20 +12,10 @@ function applyCustomReduce() {
       return initialValue;
     }
 
-    // if (typeof initialValue === 'string') {
-    //   prev = this[0];
-    //   startIndex = 1;
-    // } else {}
-
     if (prev === undefined) {
       prev = this[0];
       startIndex = 1;
     }
-
-    // if (this.length < 2) {
-    //   prev = this[0];
-    //   startIndex = 1;
-    // }
 
     for (let i = startIndex; i < this.length; i++) {
       prev = callback(prev, this[i], i, this);
