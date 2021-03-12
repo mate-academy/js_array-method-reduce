@@ -19,6 +19,8 @@ function applyCustomReduce() {
       }
 
       return value;
+    } else {
+      throw new Error('Callback is not found');
     }
   };
 }
