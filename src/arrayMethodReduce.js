@@ -4,23 +4,20 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, initialValue = '') {
-    let sum;
-    let startValue;
+  [].__proto__.reduce2 = function(callback, initialValue) {
+    let sum = initialValue;
+    let startValue = 0;
 
-    if (typeof initialValue === 'string') {
+    if (initialValue === undefined) {
       sum = this[0];
       startValue = 1;
-    } else {
-      sum = 0;
-      startValue = 0;
-    };
+    }
 
     for (let i = startValue; i < this.length; i++) {
       sum = callback(sum, this[i], i, this);
     }
 
-    return sum || initialValue;
+    return sum;
   };
 }
 
