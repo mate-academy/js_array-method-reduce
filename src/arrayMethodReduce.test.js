@@ -3,6 +3,7 @@
 const applyCustomReduce = require('./arrayMethodReduce');
 
 const sourceNumbers = [0, 10, 20, 30];
+
 const sourceStr = ['a', 'b', 'c', 'd'];
 
 applyCustomReduce();
