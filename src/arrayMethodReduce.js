@@ -5,7 +5,15 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    // write code here
+    let reduceValue = arguments.length > 1 ? initialValue : this[0];
+
+    let i = arguments.length > 1 ? 0 : 1;
+    while (i < this.length) {
+      reduceValue = callback(reduceValue, this[i], i, this);
+      i++;
+    }
+
+    return reduceValue;
   };
 }
 
