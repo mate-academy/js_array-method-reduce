@@ -4,15 +4,14 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, initialValue = 0) {
-    let result = initialValue;
-    const temp = initialValue;
+  [].__proto__.reduce2 = function(callback, initialValue) {
+    let result = callback(initialValue || 0, this[0], 0, this);
 
-    if (this.some(el => typeof callback(temp, el) === 'string')) {
-      result = '';
+    if (typeof result === 'string') {
+      result = result.substring(1);
     }
 
-    for (let i = 0; i < this.length; i++) {
+    for (let i = 1; i < this.length; i++) {
       result = callback(result, this[i], i, this);
     }
 
