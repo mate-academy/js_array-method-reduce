@@ -14,19 +14,7 @@ function applyCustomReduce() {
     }
 
     for (let i = startIndex; i < this.length; i++) {
-      callback();
-
-      if (callback.length === 2) {
-        result += this[i];
-      }
-
-      if (callback.length === 3) {
-        result += i;
-      }
-
-      if (callback.length === 4) {
-        result = this.length;
-      }
+      result = callback(result, this[i], i, this);
     }
 
     return result;
