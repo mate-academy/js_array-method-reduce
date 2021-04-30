@@ -5,22 +5,19 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let result = this[0];
+    let result = initialValue;
+    let start = 0;
 
     if (initialValue === undefined) {
-      for (let i = 1; i < this.length; i++) {
-        result = callback(result, this[i], i, this);
-      }
-
-      return result;
+      result = this[0];
+      start = 1;
     }
 
-    for (let i = 0; i < this.length; i++) {
-      // eslint-disable-next-line no-param-reassign
-      initialValue = callback(initialValue, this[i], i, this);
+    for (start; start < this.length; start++) {
+      result = callback(result, this[start], start, this);
     }
 
-    return initialValue;
+    return result;
   };
 }
 
