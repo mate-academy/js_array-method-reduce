@@ -6,15 +6,8 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     if (this.length === 0 && initialValue === undefined) {
-      throw new TypeError('array is empty');
-    }
-
-    if (this.length === 1 && initialValue === undefined) {
-      return this.filter(item => item !== undefined);
-    }
-
-    if (this.length === 0 && initialValue !== undefined) {
-      return initialValue;
+      throw new TypeError(`Reduce of empty 
+        array with no initial value at Array.reduce`);
     }
 
     let accumulator;
