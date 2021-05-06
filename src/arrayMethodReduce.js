@@ -9,7 +9,7 @@ function applyCustomReduce() {
     let result = initialValue;
 
     if (arguments.length < 2) {
-      start++;
+      start = 1;
       result = this[0];
     }
 
