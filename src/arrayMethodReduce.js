@@ -4,11 +4,6 @@
  * Implement method Reduce
  */
 
-//  let's assign default values to startIndex and only
-// if their is no initialValue reassign them
-//  no need for if else here
-//  also there should be only ONE for-loop
-
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let prev = initialValue;
