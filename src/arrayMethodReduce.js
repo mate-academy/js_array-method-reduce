@@ -19,12 +19,6 @@ function applyCustomReduce() {
 
     return accumulator;
   };
-
-  const operation = (accumulator, currentValue, index, array) => {
-    return accumulator + currentValue;
-  };
-
-  return [].__proto__.reduce2(operation);
 }
 
 module.exports = applyCustomReduce;
