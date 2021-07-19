@@ -3,6 +3,7 @@
 /**
  * Implement method Reduce
  */
+
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let acc = (initialValue === undefined) ? this[0] : initialValue;
