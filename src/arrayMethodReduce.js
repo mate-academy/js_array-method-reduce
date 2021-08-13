@@ -7,16 +7,15 @@ function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     // write code here
     let result = initialValue;
-    let index = 0;
+    let startIndex = 0;
 
     if (initialValue === undefined) {
       result = this[0];
-      index = 1;
+      startIndex = 1;
     }
 
-    while (index < this.length) {
+    for (let index = startIndex; index < this.length; index++) {
       result = callback(result, this[index], index, this);
-      index++;
     }
 
     return result;
