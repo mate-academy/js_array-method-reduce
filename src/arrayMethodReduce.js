@@ -9,7 +9,7 @@ function applyCustomReduce() {
     let previous = initialValue;
     let start = 0;
 
-    if (arguments.length < 2) {
+    if (initialValue === undefined) {
       previous = this[0];
       start = 1;
     }
