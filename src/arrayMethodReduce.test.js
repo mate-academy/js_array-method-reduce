@@ -47,6 +47,11 @@ test('for (sum, item, index) => sum + index', () => {
     .toBe(6);
 });
 
+test('should handle undefined if passed it as initialValue', () => {
+  expect(sourceStr.reduce2((acc, current) => acc + current, undefined))
+    .toBe('undefinedabcd');
+});
+
 test(
   'for .reduce2((sum, x, i, arr) => sum + (arr === sourceStr ? 1 : 0), 0)',
   () => {
