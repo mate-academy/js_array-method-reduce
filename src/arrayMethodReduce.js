@@ -8,7 +8,7 @@ function applyCustomReduce() {
     let prev = initialValue;
     let startIndex = 0;
 
-    if (initialValue === undefined) {
+    if (arguments.length < 2) {
       prev = this[0];
       startIndex = 1;
     }
