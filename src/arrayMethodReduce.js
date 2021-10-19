@@ -6,10 +6,12 @@ function applyCustomReduce() {
     let previous = initialValue;
     let startIndex;
 
-    arguments.length < 2 ? (
+    if (arguments.length < 2) {
       previous = this[0],
       startIndex = 1
-    ) : startIndex = 0;
+    } else {
+      startIndex = 0;
+    }
 
     for (let i = startIndex; i < this.length; i++) {
       previous = callback(previous, this[i], i, this);
