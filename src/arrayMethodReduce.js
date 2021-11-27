@@ -9,17 +9,11 @@ function applyCustomReduce() {
     let startIndex = 0;
 
     if (arguments.length < 2) {
-      prev = this[0];
       startIndex = 1;
-
-      for (let i = startIndex; i < this.length; i++) {
-        prev = callback(prev, this[i], i, this);
-      }
-
-      return prev;
+      prev = this[0];
     }
 
-    for (let i = 0; i < this.length; i++) {
+    for (let i = startIndex; i < this.length; i++) {
       prev = callback(prev, this[i], i, this);
     }
 
