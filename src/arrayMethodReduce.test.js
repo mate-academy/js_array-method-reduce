@@ -69,3 +69,10 @@ test('Source array is not changed', () => {
   expect(sourceStr)
     .toEqual(['a', 'b', 'c', 'd']);
 });
+
+const mixOfValues = [1, 2, 3, null, undefined, NaN, 'test', '', 1000];
+
+test('returns NaNtest610008 string', () => {
+  expect(mixOfValues.reduce2((sum, x, i) => sum + x + i))
+    .toBe('NaNtest6710008');
+});
