@@ -10,21 +10,19 @@ function applyCustomReduce() {
       return initialValue;
     }
 
-    let result;
-    let startIndex = 0;
+    let prevValue = this[0];
+    let startIndex = 1;
 
     if (arguments.length > 1) {
-      result = initialValue;
-    } else {
-      result = this[0];
-      startIndex++;
+      prevValue = initialValue;
+      startIndex--;
     }
 
     for (let i = startIndex; i < this.length; i++) {
-      result = callback(result, this[i], i, this);
+      prevValue = callback(prevValue, this[i], i, this);
     }
 
-    return result;
+    return prevValue;
   };
 }
 
