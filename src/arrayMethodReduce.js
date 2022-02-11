@@ -20,6 +20,6 @@ function applyCustomReduce() {
 
     return accumulator;
   };
-}
+};
 
 module.exports = applyCustomReduce;
