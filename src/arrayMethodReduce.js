@@ -9,7 +9,7 @@ function applyCustomReduce() {
     let startIndex = 0;
 
     if (arguments.length < 2) {
-      prev = this[0];
+      accumulator = this[0];
       startIndex = 1;
     }
 
