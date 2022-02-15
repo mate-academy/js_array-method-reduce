@@ -17,7 +17,7 @@ function applyCustomReduce() {
       prev = callback(prev, this[i], i, this);
     }
 
-    return prev;
+    return accumulator;
   };
 }
 
