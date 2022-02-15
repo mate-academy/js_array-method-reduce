@@ -5,7 +5,7 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let prev = initialValue;
+    let accumulator = initialValue;
     let startIndex = 0;
 
     if (arguments.length < 2) {
