@@ -5,31 +5,36 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue = this[0]) {
-    let pprev = this[0];
-    let ccur;
+    let previous = this[0];
+    let current;
 
-    if (arguments.length > 1 && arguments[1] !== undefined) {
-      pprev = initialValue;
-
-      for (let i = 0; i < this.length; i++) {
-        ccur = this[i];
-        pprev = callback(pprev, ccur, i, this);
-      }
-    } else if (arguments.length > 1 && arguments[1] === undefined) {
-      pprev = 'undefined';
-
-      for (let i = 0; i < this.length; i++) {
-        ccur = this[i];
-        pprev = callback(pprev, ccur, i, this);
-      }
-    } else {
-      for (let i = 1; i < this.length; i++) {
-        ccur = this[i];
-        pprev = callback(pprev, ccur, i, this);
+    function loopFunc(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        current = arr[i];
+        previous = callback(previous, current, i, arr);
       }
     }
 
-    return pprev;
+    function loopFuncOne(arr) {
+      for (let i = 1; i < arr.length; i++) {
+        current = arr[i];
+        previous = callback(previous, current, i, arr);
+      }
+    }
+
+    if (arguments.length > 1 && arguments[1] !== undefined) {
+      previous = initialValue;
+
+      loopFunc(this);
+    } else if (arguments.length > 1 && arguments[1] === undefined) {
+      previous = 'undefined';
+
+      loopFunc(this);
+    } else {
+      loopFuncOne(this);
+    }
+
+    return previous;
   };
 }
 
