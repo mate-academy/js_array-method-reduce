@@ -4,18 +4,20 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, initialValue = this[0]) {
-    let previousValue = initialValue;
+  [].__proto__.reduce2 = function(callback, initialValue) {
+    let reducedValue = initialValue;
+    let startIndex = 0;
 
-    if (initialValue === undefined) {
-      previousValue = undefined;
+    if (arguments.length < 2) {
+      startIndex = 1;
+      reducedValue = this[0];
     }
 
-    for (let i = 0; i < this.length; i++) {
-      previousValue = callback(previousValue, this[i], i, this);
+    for (let i = startIndex; i < this.length; i++) {
+      reducedValue = callback(reducedValue, this[i], i, this);
     }
 
-    return previousValue;
+    return reducedValue;
   };
 }
 
