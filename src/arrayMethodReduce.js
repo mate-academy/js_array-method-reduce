@@ -5,7 +5,6 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    const arr = Object(this);
     let value;
     let index;
 
@@ -13,12 +12,12 @@ function applyCustomReduce() {
       value = initialValue;
       index = 0;
     } else {
-      value = arr[0];
+      value = this[0];
       index = 1;
     }
 
-    for (let i = index; i < arr.length; i++) {
-      value = callback(value, arr[i], i, arr);
+    for (let i = index; i < this.length; i++) {
+      value = callback(value, this[i], i, this);
     }
 
     return value;
