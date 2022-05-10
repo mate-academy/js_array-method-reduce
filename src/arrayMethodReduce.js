@@ -5,21 +5,19 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let res = initialValue;
+    let result = initialValue;
+    let startIndex = 0;
 
-    if (arguments.length > 1) {
-      for (let i = 0; i < this.length; i++) {
-        res = callback(res, this[i], i, this);
-      }
-    } else {
-      res = this[0];
-
-      for (let i = 1; i < this.length; i++) {
-        res = callback(res, this[i], i, this);
-      }
+    if (arguments.length <= 1) {
+      result = this[0];
+      startIndex = 1;
     }
 
-    return res;
+    for (let i = startIndex; i < this.length; i++) {
+      result = callback(result, this[i], i, this);
+    }
+
+    return result;
   };
 }
 
