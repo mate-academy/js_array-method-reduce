@@ -7,7 +7,11 @@ function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     const thisArray = [...this];
 
-    if (thisArray.length === 0 && initialValue === undefined) {
+    if (callback === undefined) {
+      throw new TypeError('undefined is not a function');
+    }
+
+    if (thisArray.length === 0 && arguments.length !== 2) {
       throw new TypeError('reduce of empty array with no initial value');
     }
 
