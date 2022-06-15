@@ -5,13 +5,11 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    const thisArray = [...this];
-
     if (callback === undefined) {
       throw new TypeError('undefined is not a function');
     }
 
-    if (thisArray.length === 0 && arguments.length !== 2) {
+    if (this.length === 0 && arguments.length !== 2) {
       throw new TypeError('reduce of empty array with no initial value');
     }
 
@@ -19,12 +17,12 @@ function applyCustomReduce() {
     let startIndex = 0;
 
     if (arguments.length === 1) {
-      accumulator = thisArray[0];
+      accumulator = this[0];
       startIndex = 1;
     }
 
-    for (let i = startIndex; i < thisArray.length; i++) {
-      accumulator = callback(accumulator, thisArray[i], i, this);
+    for (let i = startIndex; i < this.length; i++) {
+      accumulator = callback(accumulator, this[i], i, this);
     }
 
     return accumulator;
