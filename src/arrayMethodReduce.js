@@ -17,7 +17,7 @@ function applyCustomReduce() {
       sum = callback(sum, this[i], i, this);
     }
 
-    return sum || initialValue;
+    return sum;
   };
 }
 
