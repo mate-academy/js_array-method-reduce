@@ -4,24 +4,20 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback = getSumm, initialValue) {
+  [].__proto__.reduce2 = function(callback, initialValue) {
     let startIndex = 0;
-    let prev = initialValue;
+    let previousValue = initialValue;
 
     if (arguments.length < 2) {
       startIndex = 1;
-      prev = this[0];
+      previousValue = this[0];
     }
 
     for (let i = startIndex; i < this.length; i++) {
-      prev = callback(prev, this[i], i, this);
+      previousValue = callback(previousValue, this[i], i, this);
     }
 
-    return prev;
-  };
-
-  const getSumm = (prev, item, index, arr) => {
-    return item + prev;
+    return previousValue;
   };
 }
 
