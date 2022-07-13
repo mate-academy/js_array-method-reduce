@@ -8,13 +8,9 @@ function applyCustomReduce() {
     let begin = 0;
     let returnedValue = initialValue[0];
 
-    if (initialValue[0] === undefined) {
-      returnedValue = 'undefined';
-    }
-
-    if (initialValue.length === 0) {
+    if (arguments.length === 1) {
+      begin = 1;
       returnedValue = this[0];
-      begin++;
     }
 
     for (let i = begin; i < this.length; i++) {
