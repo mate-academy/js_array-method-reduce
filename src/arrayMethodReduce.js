@@ -21,20 +21,20 @@ function applyCustomReduce() {
       return initial;
     }
 
-    let first;
-    let second;
+    let firstValue;
+    let secondValue;
     let index = 0;
 
     if (initial !== undefined) {
-      first = initial;
-      second = this[0];
+      firstValue = initial;
+      secondValue = this[0];
     } else {
-      first = this[0];
-      second = this[1];
+      firstValue = this[0];
+      secondValue = this[1];
       index = 1;
     }
 
-    let accumulator = callback(first, second, index, this);
+    let accumulator = callback(firstValue, secondValue, index, this);
 
     for (let i = index + 1; i < this.length; i++) {
       accumulator = callback(accumulator, this[i], i, this);
