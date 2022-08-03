@@ -32,8 +32,3 @@ function applyCustomReduce() {
 }
 
 module.exports = applyCustomReduce;
-
-// Loop through the array elements.
-// Call the reducer function with the accumulator
-// and current element as the arguments.
-// Return accumulator after going through all the elements.
