@@ -5,16 +5,20 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let prev = arguments.length !== 1
-      ? callback(initialValue, this[0], 0, this) : this[0];
+    let index = 0;
+    let prev = initialValue;
 
-    for (let i = 1; i < this.length; i++) {
+    if (arguments.length < 2) {
+      index = 1;
+      prev = this[0];
+    }
+
+    for (let i = index; i < this.length; i++) {
       prev = callback(prev, this[i], i, this);
     }
 
     return prev;
   };
 }
-applyCustomReduce();
 
 module.exports = applyCustomReduce;
