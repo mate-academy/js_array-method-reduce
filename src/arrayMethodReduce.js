@@ -8,9 +8,9 @@ function applyCustomReduce() {
     let j = 0;
     let accum = 0;
 
-    if (arguments.length >= 2) { accum = initialValue; }
-
-    if (arguments.length < 2) {
+    if (arguments.length >= 2) {
+      accum = initialValue;
+    } else {
       accum = this[0];
       j++;
     }
@@ -26,13 +26,3 @@ function applyCustomReduce() {
 applyCustomReduce();
 
 module.exports = applyCustomReduce;
-
-// numbers.map = function(callback) {
-//   const result = [];
-
-//   for (let i = 0; i < this.length; i++) {
-//     result[i] = callback(this[i], i, this);
-//   }
-
-//   return result;
-// };
