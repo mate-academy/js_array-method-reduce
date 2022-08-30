@@ -5,24 +5,19 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let result;
-    let startValue;
+    let result = '';
+    let startValue = '';
 
     if (arguments.length === 1) {
       if (typeof this[0] === 'number') {
         startValue = this[0];
         result = 0;
-      } else if (typeof this[0] === 'string') {
-        startValue = '';
-        result = '';
       }
     } else {
       if (initialValue === undefined) {
         result = 'undefined';
-        startValue = '';
       } else {
-        result = arguments[1];
-        startValue = initialValue;
+        result = startValue = initialValue;
       }
     }
 
