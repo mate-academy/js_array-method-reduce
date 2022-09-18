@@ -5,21 +5,21 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let accumulated = initialValue;
+    let accumulator = initialValue;
     let currentElementIndex = 0;
 
     if (arguments.length < 2) {
-      accumulated = this[0];
+      accumulator = this[0];
       currentElementIndex = 1;
     }
 
     for (let i = currentElementIndex; i < this.length; i++) {
       const currentElement = this[i];
 
-      accumulated = callback(accumulated, currentElement, i, this);
+      accumulator = callback(accumulator, currentElement, i, this);
     }
 
-    return accumulated;
+    return accumulator;
   };
 };
 
