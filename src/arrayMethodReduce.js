@@ -14,9 +14,7 @@ function applyCustomReduce() {
     }
 
     for (let i = currentElementIndex; i < this.length; i++) {
-      const currentElement = this[i];
-
-      accumulator = callback(accumulator, currentElement, i, this);
+      accumulator = callback(accumulator, this[i], i, this);
     }
 
     return accumulator;
