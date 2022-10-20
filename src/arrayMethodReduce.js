@@ -8,12 +8,12 @@ function applyCustomReduce() {
     let startValue = initialValue;
     let startIndex = 0;
 
-    if (arguments < 2) {
+    if (arguments.length < 2) {
       startValue = this[0];
       startIndex = 1;
     }
 
-    for (let i = startIndex; this.length; i++) {
+    for (let i = startIndex; i < this.length; i++) {
       startValue = callback(startValue, this[i], i, this);
     }
 
