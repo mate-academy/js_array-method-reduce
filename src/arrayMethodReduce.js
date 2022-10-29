@@ -13,9 +13,8 @@ function applyCustomReduce() {
       currentIndex = 1;
     }
 
-    for (currentIndex; currentIndex < this.length; currentIndex++) {
-      previousValue
-        = callback(previousValue, this[currentIndex], currentIndex, this);
+    for (let i = currentIndex; i < this.length; i++) {
+      previousValue = callback(previousValue, this[i], i, this);
     }
 
     return previousValue;
