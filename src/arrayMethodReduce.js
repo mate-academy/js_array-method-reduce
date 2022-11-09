@@ -5,13 +5,10 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let prevValue = initialValue;
-    let startIndex = 0;
-
-    if (arguments.length < 2) {
-      prevValue = this[0];
-      startIndex = 1;
-    }
+    let prevValue = (arguments.length < 2)
+      ? this[0]
+      : initialValue;
+    const startIndex = (arguments.length < 2) ? 1 : 0;
 
     for (let i = startIndex; i < this.length; i++) {
       prevValue = callback(prevValue, this[i], i, this);
