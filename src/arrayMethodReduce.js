@@ -6,7 +6,9 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let prev = initialValue;
-    let startIndex = 0;
+    let startIndex = prev === this[0]
+      ? 1
+      : 0;
 
     if (arguments.length < 2) {
       prev = this[0];
