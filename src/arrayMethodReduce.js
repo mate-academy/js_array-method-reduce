@@ -8,11 +8,7 @@ function applyCustomReduce() {
     let totalResult = initialValue;
     let start = 0;
 
-    if (totalResult === undefined && arguments.length === 2) {
-      totalResult = 'undefined';
-    }
-
-    if (totalResult === undefined && arguments.length === 1) {
+    if (arguments.length < 2) {
       totalResult = this[0];
       start = 1;
     }
