@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Implement method Reduce
+ * Implement method Rreduce
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
