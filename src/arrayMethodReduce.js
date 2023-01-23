@@ -4,12 +4,12 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(accumulator, ...startValue) {
+  [].__proto__.reduce2 = function(accumulator, ...initialValue) {
     let result = this[0];
     let start = 1;
 
-    if (startValue.length > 0) {
-      result = startValue[0];
+    if (initialValue.length > 0) {
+      result = initialValue[0];
       start = 0;
     }
 
