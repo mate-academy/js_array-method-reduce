@@ -4,10 +4,6 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  // const callback = (prev, item, index, arr) => {
-
-  // };
-
   [].__proto__.reduce2 = function(callback, initialValue) {
     let prev = initialValue;
     let startIndex = 0;
