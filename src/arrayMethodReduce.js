@@ -10,17 +10,10 @@ function applyCustomReduce() {
     if (this.length === 0) {
       return initialValue;
     }
+    let i = arguments.length === 1 ? 1 : 0;
+    accum = arguments.length === 1 ? this[0] : initialValue;
 
-    for (let i = 0; i < this.length; i++) {
-      if (i === 0) {
-        if (arguments.length === 1) {
-          accum = this[i];
-          i++;
-        } else {
-          accum = initialValue;
-        }
-      }
-
+    for (; i < this.length; i++) {
       accum = callback(accum, this[i], i, this);
     }
 
