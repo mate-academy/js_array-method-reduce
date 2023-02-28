@@ -9,9 +9,7 @@ function applyCustomReduce() {
     const firstElement = arguments.length > 1 ? 0 : 1;
 
     for (let i = firstElement; i < this.length; i++) {
-      if (this[i] !== '') {
-        accumulator = callback(accumulator, this[i], i, this);
-      }
+      accumulator = callback(accumulator, this[i], i, this);
     }
 
     return accumulator;
