@@ -7,9 +7,9 @@ function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let result = arguments.length < 2 ? this[0] : initialValue;
 
-    const start = arguments.length < 2 ? initialValue : 1;
+    const start = arguments.length < 2 ? 1 : 0;
 
-    for (let i = start ? 0 : 1; i < this.length; i++) {
+    for (let i = start; i < this.length; i++) {
       result = callback(result, this[i], i, this);
     }
 
