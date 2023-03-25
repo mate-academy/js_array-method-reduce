@@ -7,12 +7,12 @@ function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let sum = initialValue;
 
-    if (!initialValue && typeof this[0] === 'number') {
+    if (arguments.length < 2 && typeof this[0] === 'number') {
       sum = 0;
     }
 
-    if (!initialValue && typeof this[0] === 'string') {
-      sum = initialValue;
+    if (arguments.length < 2 && typeof this[0] === 'string') {
+      sum = '';
     }
 
     for (let i = 0; i < this.length; i++) {
