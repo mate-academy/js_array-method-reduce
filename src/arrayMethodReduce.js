@@ -6,15 +6,15 @@
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
     let start = this[0];
-    let i = 1;
+    let sameShitAsIndex = 1;
 
     if (arguments.length === 2) {
       start = initialValue;
-      i = 0;
+      sameShitAsIndex = 0;
     }
 
-    for (; i < this.length; i++) {
-      start = callback(start, this[i], i, this);
+    for (let index = sameShitAsIndex; index < this.length; index++) {
+      start = callback(start, this[index], index, this);
     }
 
     return start;
