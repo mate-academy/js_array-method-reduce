@@ -9,15 +9,8 @@ function applyCustomReduce() {
       return initialValue;
     }
 
-    let currentValue;
-    let startingIndex = 0;
-
-    if (arguments.length === 2) {
-      currentValue = initialValue;
-    } else {
-      currentValue = this[0];
-      startingIndex++;
-    }
+    let currentValue = (arguments.length === 2) ? initialValue : this[0];
+    const startingIndex = currentValue === this[0] ? 1 : 0;
 
     for (let i = startingIndex; i < this.length; i++) {
       currentValue = callback(currentValue, this[i], i, this);
