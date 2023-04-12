@@ -5,10 +5,6 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    if (!this.length && !initialValue) {
-      throw TypeError;
-    }
-
     let accumulator = initialValue;
     let startValue = 0;
 
