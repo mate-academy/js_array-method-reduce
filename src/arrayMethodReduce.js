@@ -16,7 +16,7 @@ function applyCustomReduce() {
     for (let i = firstIndex; i < this.length; i++) {
       result = callback(result, this[i], i, this);
     }
-    console.log('result', result)
+
     return result;
   };
 };
