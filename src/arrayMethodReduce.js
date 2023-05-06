@@ -11,8 +11,8 @@ function applyCustomReduce() {
     if (arguments.length === 1) {
       accumulator = this[0];
       initialIndex = 1;
-    } else if (arguments.length === 2 && initialValue === undefined) {
-      accumulator = 'undefined';
+    } else if (arguments.length === 2 && !initialValue && initialValue !== 0) {
+      accumulator = String(initialValue);
     } else {
       accumulator = initialValue;
     }
