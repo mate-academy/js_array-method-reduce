@@ -4,8 +4,7 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  // eslint-disable-next-line no-extend-native
-  Array.prototype.reduce2 = function(callback, initialValue) {
+  [].__proto__.reduce2 = function(callback, initialValue) {
     let prev = initialValue;
     let startIndex = 0;
 
