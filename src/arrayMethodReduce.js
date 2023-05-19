@@ -5,11 +5,11 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let prevValue = initialValue;
+    let accumulator = initialValue;
     let startIndex = 0;
 
     if (arguments.length === 1) {
-      prevValue = this[0];
+      accumulator = this[0];
       startIndex = 1;
     }
 
@@ -18,10 +18,10 @@ function applyCustomReduce() {
     }
 
     for (let i = startIndex; i < this.length; i++) {
-      prevValue = callback(prevValue, this[i], i, this);
+      accumulator = callback(accumulator, this[i], i, this);
     }
 
-    return prevValue;
+    return accumulator;
   };
 };
 
