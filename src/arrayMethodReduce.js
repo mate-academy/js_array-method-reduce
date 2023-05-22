@@ -4,9 +4,9 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, initalValue, index = 0) {
+  [].__proto__.reduce2 = function(callback, initalValue) {
     let acc = initalValue;
-    let fromIndex = index;
+    let fromIndex = 0;
 
     if (arguments.length < 2) {
       acc = this[0];
