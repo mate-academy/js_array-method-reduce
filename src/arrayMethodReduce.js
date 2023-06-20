@@ -5,19 +5,10 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let accumulator;
-    let startIndex;
+    let accumulator = initialValue;
+    let startIndex = 0;
 
-    if (arguments.length > 1) {
-      if (initialValue === undefined && this.length === 0) {
-        throw new TypeError('Reduce of empty array with no initial value');
-      }
-      accumulator = initialValue;
-      startIndex = 0;
-    } else {
-      if (this.length === 0) {
-        throw new TypeError('Reduce of empty array with no initial value');
-      }
+    if (arguments.length < 2) {
       accumulator = this[0];
       startIndex = 1;
     }
