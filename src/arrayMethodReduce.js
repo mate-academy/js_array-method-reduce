@@ -5,15 +5,8 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let index, accumulator;
-
-    if (arguments.length > 1) {
-      index = 0;
-      accumulator = initialValue;
-    } else {
-      index = 1;
-      accumulator = this[0];
-    }
+    const index = arguments.length > 1 ? 0 : 1;
+    let accumulator = arguments.length > 1 ? initialValue : this[0];
 
     for (let i = index; i < this.length; i++) {
       accumulator = callback(accumulator, this[i], i, this);
