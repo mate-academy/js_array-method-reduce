@@ -2,15 +2,10 @@
 
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let acc;
-
-    if (initialValue !== undefined) {
-      acc = initialValue;
-    } else if (arguments.length > 1) {
-      acc = initialValue;
-    } else {
-      acc = this[0];
-    }
+    let acc = initialValue !== undefined
+      ? initialValue
+      : arguments.length > 1 ? initialValue
+        : this[0];
 
     if (acc === this[0]) {
       for (let i = 1; i < this.length; i++) {
@@ -27,3 +22,29 @@ function applyCustomReduce() {
 }
 
 module.exports = applyCustomReduce;
+
+// function applyCustomReduce() {
+//   [].__proto__.reduce2 = function (callback, initialValue) {
+//     let acc;
+
+//     if (initialValue !== undefined) {
+//       acc = initialValue;
+//     } else if (arguments.length > 1) {
+//       acc = initialValue;
+//     } else {
+//       acc = this[0];
+//     }
+
+//     if (acc === this[0]) {
+//       for (let i = 1; i < this.length; i++) {
+//         acc = callback(acc, this[i], i, this);
+//       }
+//     } else {
+//       for (let i = 0; i < this.length; i++) {
+//         acc = callback(acc, this[i], i, this);
+//       }
+//     }
+
+//     return acc;
+//   };
+// }
