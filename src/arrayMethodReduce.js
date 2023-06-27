@@ -7,14 +7,10 @@ function applyCustomReduce() {
       : arguments.length > 1 ? initialValue
         : this[0];
 
-    if (acc === this[0]) {
-      for (let i = 1; i < this.length; i++) {
-        acc = callback(acc, this[i], i, this);
-      }
-    } else {
-      for (let i = 0; i < this.length; i++) {
-        acc = callback(acc, this[i], i, this);
-      }
+    const startIndex = acc === this[0] ? 1 : 0;
+
+    for (let i = startIndex; i < this.length; i++) {
+      acc = callback(acc, this[i], i, this);
     }
 
     return acc;
@@ -22,29 +18,3 @@ function applyCustomReduce() {
 }
 
 module.exports = applyCustomReduce;
-
-// function applyCustomReduce() {
-//   [].__proto__.reduce2 = function (callback, initialValue) {
-//     let acc;
-
-//     if (initialValue !== undefined) {
-//       acc = initialValue;
-//     } else if (arguments.length > 1) {
-//       acc = initialValue;
-//     } else {
-//       acc = this[0];
-//     }
-
-//     if (acc === this[0]) {
-//       for (let i = 1; i < this.length; i++) {
-//         acc = callback(acc, this[i], i, this);
-//       }
-//     } else {
-//       for (let i = 0; i < this.length; i++) {
-//         acc = callback(acc, this[i], i, this);
-//       }
-//     }
-
-//     return acc;
-//   };
-// }
