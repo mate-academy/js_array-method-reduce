@@ -5,15 +5,15 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    let initialValueCopy = arguments.length > 1 ? initialValue : this[0];
+    let accumulator = arguments.length > 1 ? initialValue : this[0];
 
     const startIndex = arguments.length > 1 ? 0 : 1;
 
     for (let i = startIndex; i < this.length; i++) {
-      initialValueCopy = callback(initialValueCopy, this[i], i, this);
+      accumulator = callback(accumulator, this[i], i, this);
     }
 
-    return initialValueCopy;
+    return accumulator;
   };
 }
 
