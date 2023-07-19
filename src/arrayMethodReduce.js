@@ -4,7 +4,7 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].proto.reduce2 = function(callback, ...initialValue) {
+  [].__proto__.reduce2 = function(callback, ...initialValue) {
     let acc = initialValue[0];
     let startIndex = 0;
 
@@ -19,6 +19,6 @@ function applyCustomReduce() {
 
     return acc;
   };
-}
+};
 
 module.exports = applyCustomReduce;
