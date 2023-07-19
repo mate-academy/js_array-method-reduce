@@ -58,9 +58,11 @@ test(
     expect(
       sourceStr.reduce2(
         (sum, x, i, arr) => sum + (arr === sourceStr ? 1 : 0), 0
-      ))
+      )
+    )
       .toBe(4);
-  });
+  }
+);
 
 test('Source array is not changed', () => {
   expect(sourceNumbers)
