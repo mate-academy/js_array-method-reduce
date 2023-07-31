@@ -3,9 +3,16 @@
 /**
  * Implement method Reduce
  */
+
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    // write code here
+    let value = (arguments.length === 2) ? initialValue : this[0];
+
+    for (let i = 2 - arguments.length; i < this.length; i++) {
+      value = callback(value, this[i], i, this);
+    };
+
+    return value;
   };
 }
 
