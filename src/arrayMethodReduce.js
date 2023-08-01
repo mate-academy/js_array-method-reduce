@@ -1,8 +1,5 @@
 'use strict';
 
-/**
- * Implement method Reduce
- */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(...param) {
     let i = param.length < 2 ? 1 : 0;
