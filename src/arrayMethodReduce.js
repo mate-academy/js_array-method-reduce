@@ -15,7 +15,4 @@ function applyCustomReduce() {
     return acum;
   };
 }
-// callback, initialValue
-// const sourceNumbers = [0, 10, 20, 30];
-// const sourceStr = ['a', 'b', 'c', 'd'];
 module.exports = applyCustomReduce;
