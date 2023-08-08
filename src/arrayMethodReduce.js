@@ -8,16 +8,10 @@ function applyCustomReduce() {
     let accumulator = initialValue.length > 0
       ? initialValue[0]
       : this[0];
-    const startIndex = initialValue.length ? 0 : 1;
+    let startIndex = initialValue.length ? 0 : 1;
 
-    if (startIndex === 1 && this.length > 0) {
-      accumulator = this[0];
-    } else if (startIndex === 0 && initialValue === undefined) {
-      accumulator = 'undefined';
-    }
-
-    for (let i = startIndex; i < this.length; i++) {
-      accumulator = callback(accumulator, this[i], i, this);
+    for (startIndex; startIndex < this.length; startIndex++) {
+      accumulator = callback(accumulator, this[startIndex], startIndex, this);
     }
 
     return accumulator;
