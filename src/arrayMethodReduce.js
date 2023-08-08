@@ -13,9 +13,9 @@ function applyCustomReduce() {
     }
 
     let accumulator = initialValue.length ? initialValue[0] : this[0];
-    const start = initialValue.length ? 0 : 1;
+    const startIndex = initialValue.length ? 0 : 1;
 
-    for (let i = start; i < this.length; i++) {
+    for (let i = startIndex; i < this.length; i++) {
       accumulator = callback(accumulator, this[i], i, this);
     }
 
