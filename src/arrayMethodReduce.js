@@ -4,8 +4,8 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  [].__proto__.reduce2 = function(callback, props) {
-    let accum = props;
+  [].__proto__.reduce2 = function(callback, initialValue) {
+    let accum = initialValue;
     let count = 0;
 
     if (arguments.length === 1) {
