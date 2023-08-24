@@ -5,15 +5,12 @@
  */
 function applyCustomReduce() {
   [].__proto__.reduce2 = function(callback, initialValue) {
-    if (arguments.length < 1) {
-      throw new TypeError('need at least one argument');
-    }
+    let result = initialValue;
+    let i = 0;
 
-    let result = initialValue !== undefined ? initialValue : this[0];
-    let i = initialValue !== undefined ? 0 : 1;
-
-    if (this.length === 0 && initialValue === undefined) {
-      return 'undefined' + this.join('');
+    if (arguments.length < 2) {
+      result = this[0];
+      i = 1;
     }
 
     for (; i < this.length; i++) {
