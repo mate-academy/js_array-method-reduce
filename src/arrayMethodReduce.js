@@ -4,30 +4,16 @@
  * Implement method Reduce
  */
 function applyCustomReduce() {
-  if (!Array.prototype.reduce2) {
-    [].__proto__.reduce2 = function(callback, initialValue) {
-      let result;
+  [].__proto__.reduce2 = function(callback, initialValue) {
+    let acc = arguments.length <= 1 ? this[0] : initialValue;
+    const startIndex = arguments.length <= 1 ? 1 : 0;
 
-      if (typeof this[0] === 'number') {
-        result = initialValue !== undefined ? initialValue : this[0];
-      } else if (typeof this[0] === 'string') {
-        result = initialValue !== undefined ? initialValue : 'undefined';
-      } else {
-        result = initialValue;
-      }
+    for (let i = startIndex; i < this.length; i++) {
+      acc = callback(acc, this[i], i, this);
+    }
 
-      if (typeof this[0] === 'string' && initialValue === undefined) {
-        // eslint-disable-next-line no-param-reassign
-        initialValue = 'undefined';
-      }
-
-      for (let i = 0; i < this.length; i++) {
-        result = callback(result, this[i], i, this);
-      }
-
-      return result;
-    };
-  }
+    return acc;
+  };
 }
 
 module.exports = applyCustomReduce;
